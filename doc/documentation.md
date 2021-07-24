@@ -28,15 +28,15 @@ when aren't declared
         dot            #   - Draw a single dot on the screen
         circle         #   - Draw a circle
         crosshair      #   - Draw a crosshair (useful for calibration stuff)
-    id: widgetID       # widgetID   [optional] Widget ID
-    x: 10              # Integer    [optional] X Position for the widget
-    y: 10              # Integer    [optional] Y Position for the widget
-    color: 255,255,255 # Tuple      [optional] Widget color
-    action: None       # String     [optional] Action associated to this widget
-    t_x1: <calc>       # Touch Xmin [optional] Touchscreen X min (calculated or manually set)
-    t_y1: <calc>       # Touch Ymin [optional] Touchscreen Y min (calculated or manually set)
-    t_x2: <calc>       # Touch Xmax [optional] Touchscreen X max (calculated or manually set)
-    t_y2: <calc>       # Touch Ymax [optional] Touchscreen Y max (calculated or manually set)
+  id: widgetID         # widgetID   [optional] Widget ID
+  x: 10                # Integer    [optional] X Position for the widget
+  y: 10                # Integer    [optional] Y Position for the widget
+  color: 255,255,255   # Tuple      [optional] Widget color
+  action: None         # String     [optional] Action associated to this widget
+  t_x1: <calc>         # Touch Xmin [optional] Touchscreen X min (calculated or manually set)
+  t_y1: <calc>         # Touch Ymin [optional] Touchscreen Y min (calculated or manually set)
+  t_x2: <calc>         # Touch Xmax [optional] Touchscreen X max (calculated or manually set)
+  t_y2: <calc>         # Touch Ymax [optional] Touchscreen Y max (calculated or manually set)
                        #            t_x1 < t_x2,   t_y1 < t_y2     [[ !ALWAYS! ]]
 ```
 
