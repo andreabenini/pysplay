@@ -28,6 +28,7 @@ when aren't declared
         dot            #   - Draw a single dot on the screen
         circle         #   - Draw a circle
         crosshair      #   - Draw a crosshair (useful for calibration stuff)
+        hidden         #   - Nothing displayed but touchscreen action available like a button
   id: widgetID         # widgetID   [optional] Widget ID
   x: 10                # Integer    [optional] X Position for the widget
   y: 10                # Integer    [optional] Y Position for the widget
@@ -79,10 +80,17 @@ Each single widget always has all common properties described above and adds its
   textalign: left|center|right  Enum       [optional] Window message alignment, default: left
   button1: '  OK  '             Text       [optional] Button1 text, if [None] is not shown
   button2:  CANCEL              Text       [optional] Button2 text, if [None] is not shown
-  buttoncolor: 50,188,228       Tuple      [optional] Buttons background color
+  buttonwidth: 64               Integer    [optional] Buttons width
+  buttonheight: 18              Integer    [optional] Buttons height
   buttontextcolor: 0,0,0        Tuple      [optional] Buttons text color
+  buttoncolor: 50,188,228       Tuple      [optional] Buttons background color
   action:  None                 String     [optional] Action associated to button1
   action2: None                 String     [optional] Action associated to button2
+
+# [HIDDEN] extra properties. [color] property not used
+- type: hidden
+  width: 64                     Integer    [optional] Widget area width
+  height: 18                    Integer    [optional] Widget area height
 
 # [DOT] extra properties (none)
 - type: dot
