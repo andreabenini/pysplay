@@ -29,6 +29,7 @@ when aren't declared
         circle         #   - Draw a circle
         crosshair      #   - Draw a crosshair (useful for calibration stuff)
         hidden         #   - Nothing displayed but touchscreen action available like a button
+        image          #   - Display an image
   id: widgetID         # widgetID   [optional] Widget ID
   x: 10                # Integer    [optional] X Position for the widget
   y: 10                # Integer    [optional] Y Position for the widget
@@ -57,12 +58,14 @@ Each single widget always has all common properties described above and adds its
   text: 'button'                Text       [optional] Text caption
   textsize: 24                  Integer    [optional] Text caption font size
   textcolor: 255,255,255        Tuple      [optional] Text color (also TopLeft border)
+  textalign: left|center|right  Enum       [optional] Window message alignment, Default [center]
+  textspacing: 10               Integer    [optional] Spacing from border [alignment=left|right]
   bordercolor: 255,255,255      Tuple      [optional] BottomRight border color
 
 # [TEXT] extra properties
 - type: text
   text: 'TEXT'                  Text       [optional] Text label
-  textalign: left|center|right  Enum       [optional] Text alignment (default: center)
+  textalign: left|center|right  Enum       [optional] Text alignment (default [center])
   textsize: 24                  Integer    [optional] Text font size
   textcolor: 255,255,255        Tuple      [optional] Text color [color]=[textcolor]
 
@@ -77,7 +80,7 @@ Each single widget always has all common properties described above and adds its
   text: 'info message'          Text       [optional] Text message
   textsize: 18                  Integer    [optional] Window message text size
   textcolor: 255,255,255        Tuple      [optional] Text color
-  textalign: left|center|right  Enum       [optional] Window message alignment, default: left
+  textalign: left|center|right  Enum       [optional] Window message alignment, default [left]
   button1: '  OK  '             Text       [optional] Button1 text, if [None] is not shown
   button2:  CANCEL              Text       [optional] Button2 text, if [None] is not shown
   buttonwidth: 64               Integer    [optional] Buttons width
@@ -91,6 +94,10 @@ Each single widget always has all common properties described above and adds its
 - type: hidden
   width: 64                     Integer    [optional] Widget area width
   height: 18                    Integer    [optional] Widget area height
+
+# [IMAGE] Display an image
+- type: image
+  src: <imageName.jpg>          String     [mandatory] Image to display
 
 # [DOT] extra properties (none)
 - type: dot
