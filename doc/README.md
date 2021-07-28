@@ -12,6 +12,8 @@ Screen:
             - <widgetItem_2>
             - ...
             - <widgetItem_N>
+        events:
+            show: eventName     # Event function to execute before the page show event
 ```
 
 ## Widgets
@@ -63,10 +65,13 @@ Each single widget always has all common properties described above and adds its
   bordercolor: 255,255,255      Tuple      [optional] BottomRight border color
 
 # [TEXT] extra properties
+#        Font: 'dejavuserif','dejavusansmono','freesans','dejavusans','freeserif','freemono'
+#        Font Variants: <fontName>+'bold'
 - type: text
   text: 'TEXT'                  Text       [optional] Text label
-  textalign: left|center|right  Enum       [optional] Text alignment (default [center])
+  textfont: freesans            Text       [optional] Font type [Default:freesans]
   textsize: 24                  Integer    [optional] Text font size
+  textalign: left|center|right  Enum       [optional] Text alignment (default [center])
   textcolor: 255,255,255        Tuple      [optional] Text color [color]=[textcolor]
 
 # [WINDOWDIALOG] extra properties
@@ -150,3 +155,4 @@ screen:
         text: Hello World
         action: exit
 ```
+
