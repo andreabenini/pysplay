@@ -155,4 +155,3 @@ screen:
         text: Hello World
         action: exit
 ```
-
