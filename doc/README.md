@@ -61,7 +61,7 @@ Each single widget always has all common properties described above and adds its
   text: 'button'                Text     [optional] Text caption
   textsize: 24                  Integer  [optional] Text caption font size
   textcolor: 255,255,255        Tuple    [optional] Text color (also TopLeft border)
-  textalign: left|center|right  Enum     [optional] Window message alignment, Default [center]
+  textalign: left|center|right  Enum     [optional] Window message alignment [Default:center]
   textspacing: 10               Integer  [optional] Spacing from border [alignment=left|right]
   bordercolor: 255,255,255      Tuple    [optional] BottomRight border color
 
@@ -72,7 +72,7 @@ Each single widget always has all common properties described above and adds its
   text: 'TEXT'                  String   [optional] Text label
   textfont: freesans            String   [optional] Font type [Default:freesans]
   textsize: 24                  Integer  [optional] Text font size
-  textalign: left|center|right  Enum     [optional] Text alignment (default [center])
+  textalign: left|center|right  Enum     [optional] Text alignment [default:center]
   textcolor: 255,255,255        Tuple    [optional] Text color [color]=[textcolor]
 
 # [WINDOWDIALOG] extra properties
@@ -86,7 +86,7 @@ Each single widget always has all common properties described above and adds its
   text: 'info message'          Text     [optional] Text message
   textsize: 18                  Integer  [optional] Window message text size
   textcolor: 255,255,255        Tuple    [optional] Text color
-  textalign: left|center|right  Enum     [optional] Window message alignment, default [left]
+  textalign: left|center|right  Enum     [optional] Window message alignment, [default:left]
   button1: '  OK  '             Text     [optional] Button1 text, if [None] is not shown
   button2:  CANCEL              Text     [optional] Button2 text, if [None] is not shown
   buttonwidth: 64               Integer  [optional] Buttons width
@@ -105,7 +105,7 @@ Each single widget always has all common properties described above and adds its
   textsize: 18                  Integer  [optional] Text list size
   textfont: freesans            String   [optional] Font type [default:freesans]
   textcolor: 255,255,255        Tuple    [optional] Text list color
-  textalign: left|center|right  String   [optional] Text alignment, default [left]
+  textalign: left|center|right  String   [optional] Text alignment, [default:left]
   textspacing: 10               Integer  [optional] Spacing from border
   scrollbarwidth: 40            Integer  [optional] Scrollbar width
   action: None                  String   [optional] Action when item selected
@@ -113,7 +113,7 @@ Each single widget always has all common properties described above and adds its
     - item1
     - item2
     - itemN
-  # Action example.             YAML definition and programming sample
+  # Action example.             Here's a YAML definition and a programming sample
   #            YAML             action: myFunc()
   #            PYTHON           def myFunc(self, selected):
   #                                 print('You picked: {}'.format(selected))
