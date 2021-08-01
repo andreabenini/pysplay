@@ -114,9 +114,10 @@ Each single widget always has all common properties described above and adds its
     - item2
     - itemN
   # Action example.             Here's a YAML definition and a programming sample
-  #            YAML             action: myFunc()
-  #            PYTHON           def myFunc(self, selected):
-  #                                 print('You picked: {}'.format(selected))
+  #            YAML FILE        action: myFunc()
+  #            PYTHON           def myFunc(self, selected, index):
+  #                                 print('Item {}, index {}'.format(selected, index))
+  # @see [userobject.testListbox()] for further details
 
 # [HIDDEN] extra properties. [color] property not used
 - type: hidden
