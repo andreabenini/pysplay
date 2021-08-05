@@ -34,9 +34,9 @@ when aren't declared
         hidden          #   - Nothing displayed but touchscreen action available like a button
         image           #   - Display an image
   id: widgetID          # widgetID   [optional] Widget ID
-  x: 10                 # Integer    [optional] X Position for the widget
-  y: 10                 # Integer    [optional] Y Position for the widget
-  color: 255,255,255    # Tuple      [optional] Widget color
+  x:  10                # Integer    [optional] X Position for the widget
+  y:  10                # Integer    [optional] Y Position for the widget
+  color:  255,255,255   # Tuple      [optional] Widget color (RGB, 3 bytes)
   action: None          # String     [optional] Action associated to this widget
   t_x1: <calc>          # Touch Xmin [optional] Touchscreen X min (calculated or manually set)
   t_y1: <calc>          # Touch Ymin [optional] Touchscreen Y min (calculated or manually set)
@@ -110,8 +110,11 @@ Each single widget always has all common properties described above and adds its
   scrollbarwidth: 40            Integer  [optional] Scrollbar width
   action: None                  String   [optional] Action when item selected
   list:                         Array    [mandatory] Items list
-    - item1
+    - item1                     #<-- These two items contains the same value
+    - text: item1               #<--        (but have different index [0,1])
     - item2
+    - text: item3               # Item with text: 'item3' and color '127,0,0'
+      color: 127,0,0
     - itemN
   # Action example.             Here's a YAML definition and a programming sample
   #            YAML FILE        action: myFunc()
@@ -160,14 +163,19 @@ screen:
         textfont: freesansbold
         textcolor: 0,150,255
         textalign: left
-      - type: dot
-        x: 160
-        y: 120
-        color: 255,255,255
-      - type: dot
-        x: 00
-        y: 120
-        color: 255,255,255
+      - type: listbox
+        id: joblist
+        x: 50
+        y: 40
+        width: 250
+        height: 140
+        color: 50,50,50
+        action: jobSelect()
+        list:
+            - Item 1
+            - text: Item 2
+            - text: item 3
+              color: 255,0,0
       - type: dot
         x: 319
         y: 120
