@@ -151,13 +151,15 @@ screen:
         height: 30
         color: 100,50,191
         action: exit
-      - type: box
-        id: box2
-        x: 50
-        y: 100
-        width: 70
-        height: 30
-        border: 1
+      - type: text
+        id: status
+        x: 100
+        y: 8
+        text: Text Message
+        textsize: 28
+        textfont: freesansbold
+        textcolor: 0,150,255
+        textalign: left
       - type: dot
         x: 160
         y: 120
