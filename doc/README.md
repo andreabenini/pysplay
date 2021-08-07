@@ -12,8 +12,10 @@ Screen:
             - <widgetItem_2>
             - ...
             - <widgetItem_N>
+        properties:
+            ...                 # See ScreenProperties below
         events:
-            show: eventName     # Event function to execute before the page show event
+            show: eventName     # Event function to execute BEFORE the page show event
 ```
 
 ## Widgets
@@ -100,29 +102,34 @@ Each single widget always has all common properties described above and adds its
 - type: listbox
   width: 200                    Integer  [optional] Widget width
   height: 150                   Integer  [optional] Widget height
+  color: 0,0,0                  Tuple    [optional] Widget color (inner box color)
   border: 1                     Integer  [optional] Widget border
   bordercolor: 128,128,128      Tuple    [optional] Border and scrollbar color
   textsize: 18                  Integer  [optional] Text list size
   textfont: freesans            String   [optional] Font type [default:freesans]
-  textcolor: 255,255,255        Tuple    [optional] Text list color
+  textcolor: 255,255,255        Tuple    [optional] Text list color [default]
   textalign: left|center|right  String   [optional] Text alignment, [default:left]
   textspacing: 10               Integer  [optional] Spacing from border
   scrollbarwidth: 40            Integer  [optional] Scrollbar width
-  action: None                  String   [optional] Action when item selected
   list:                         Array    [mandatory] Items list
     - item1                     #<-- These two items contains the same value
     - text: item1               #<--        (but have different index [0,1])
     - item2
     - text: item3               # Item with text: 'item3' and color '127,0,0'
-      color: 127,0,0
+      color: 127,0,0            #
     - itemN
+  action: None                  String   [optional] Action when item selected
   # Action example.             Here's a YAML definition and a programming sample
-  #            YAML FILE        action: myFunc()
-  #            PYTHON           def myFunc(self, selected, index):
-  #                                 print('Item {}, index {}'.format(selected, index))
+  #  YAML FILE                  # Inside .yaml file
+  #     action: myFunc()        
+  #  PYTHON                     # Function definition, in your code
+  #     def myFunc(self, listbox, index):
+  #         print('Widget ID={}  '.format(listbox['id']))
+  #         print('       Item={}'.format(listbox['list'][index]['text']))
   # @see [userobject.testListbox()] for further details
+  selected: N                   Integer  [property] Returns currently selected item
 
-# [HIDDEN] extra properties. [color] property not used
+# [HIDDEN] extra properties.    [color] property NOT used
 - type: hidden
   width: 64                     Integer  [optional] Widget area width
   height: 18                    Integer  [optional] Widget area height
@@ -139,6 +146,39 @@ Each single widget always has all common properties described above and adds its
   fill: true|false              Boolean  [optional] Fill the crosshair (with [color])
   radius: 10                    Integer  [optional] Crosshair radius
 ```
+
+
+
+
+## ScreenProperties
+global properties related to the selected [screenName]
+```yaml
+Screen:
+    <screenName>:               # ScreenID   [required] (main: first displayed screen)
+        properties:             # [optional]
+            color: 0,0,0        # Screen background color
+```
+
+
+
+
+## Events
+Here's a sample with events
+```yaml
+Screen:
+    <screenName>:               # ScreenID   [required] (main: first displayed screen)
+        events:                 # [optional]
+            show: eventName     # Method executed BEFORE page show event
+```
+### SHOW
+Event fired before displaying the page [beforeShow()]
+```yaml
+        events:
+            show: myFunction()  # Method executed BEFORE page show event
+```
+
+
+
 
 ## Example
 Here's a sample configuration file
