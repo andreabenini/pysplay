@@ -15,7 +15,8 @@ Screen:
         properties:
             ...                 # See ScreenProperties below
         events:
-            show: eventName     # Event function to execute BEFORE the page show event
+            open: eventName     # Event function to execute before the page is shown
+            close: eventName    # Event function to execute when this page is closed
 ```
 
 ## Widgets
