@@ -20,8 +20,8 @@ Screen:
 
 ## Widgets
 ### Common properties
-These properties are available to each single widget, they're defaulted to a common value
-when aren't declared
+These properties are available for each single widget, they're defaulted to a common value
+when are not declared.
 ```yaml
 # COMMON properties
 - Type: <OneOfThese>    # widgetType [required] Your favorite widget
