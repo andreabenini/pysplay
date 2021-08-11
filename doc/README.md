@@ -15,8 +15,8 @@ Screen:
         properties:
             ...                 # See ScreenProperties below
         events:
-            open: eventName     # Event function to execute before the page is shown
-            close: eventName    # Event function to execute when this page is closed
+            open: eventName()   # Event function to execute before the page is shown
+            close: eventName()  # Event function to execute when this page is closed
 ```
 
 ## Widgets
@@ -169,16 +169,9 @@ Here's a sample with events
 Screen:
     <screenName>:               # ScreenID   [required] (main: first displayed screen)
         events:                 # [optional]
-            show: eventName     # Method executed BEFORE page show event
+            open: eventOpen()   # Event function to execute before the page is shown
+            close: eventClose() # Event function to execute when this page is closed
 ```
-### SHOW
-Event fired before displaying the page [beforeShow()]
-```yaml
-        events:
-            show: myFunction()  # Method executed BEFORE page show event
-```
-
-
 
 
 ## Example
