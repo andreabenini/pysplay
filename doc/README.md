@@ -1,6 +1,9 @@
 # Documentation
 YAML file documentation with widgets, properties and actions associated to **pysplay** _library_
 
+
+
+
 ## Structure
 **pysplay** YAML structure is short and easy to understand, sections and variables are case insensitive but
 assigned values are not. here's a skeleton overview:
@@ -18,6 +21,9 @@ Screen:
             open: eventName()   # Event function to execute before the page is shown
             close: eventName()  # Event function to execute when this page is closed
 ```
+
+
+
 
 ## Widgets
 ### Common properties
@@ -172,6 +178,8 @@ Screen:
             open: eventOpen()   # Event function to execute before the page is shown
             close: eventClose() # Event function to execute when this page is closed
 ```
+
+
 
 
 ## Example
