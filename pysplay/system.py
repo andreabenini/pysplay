@@ -570,7 +570,10 @@ class system():
             if widget['t_x1'] < X and X < widget['t_x2'] and widget['t_y1'] < Y and Y < widget['t_y2']:
                 userAction = pysplay.utility.functionGet(widget['action'])
                 if userAction:  # Execute user defined action
-                    pysplay.utility.functionExecute(self._userObject, *userAction)
+                    try:
+                        pysplay.utility.functionExecute(self._userObject, *userAction)
+                    except:
+                        pass
 
     # Get widget from screen
     def widgetGet(self, screenName, widgetID):

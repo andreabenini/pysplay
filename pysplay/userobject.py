@@ -268,4 +268,5 @@ class userobject():
     def __emitterStarter(self, messageQueue, emitterFunction, functionExecute):
         message = emitterMessage(messageQueue, emitterFunction)
         functionExecute += (message,)       # Add message queue to function executor
-        pysplay.utility.functionExecute(self, *functionExecute)
+        try: pysplay.utility.functionExecute(self, *functionExecute)
+        except: pass
