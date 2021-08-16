@@ -572,8 +572,11 @@ class system():
                 if userAction:  # Execute user defined action
                     try:
                         pysplay.utility.functionExecute(self._userObject, *userAction)
-                    except:
-                        pass
+                    except Exception as E:
+                        errorFile, errorLine, errorType = pysplay.utility.getError()
+                        print('\nERROR: Receiver function error "{}"'.format(E))
+                        print('       {}:{},  {}'.format(errorFile, errorLine, errorType))
+
 
     # Get widget from screen
     def widgetGet(self, screenName, widgetID):
