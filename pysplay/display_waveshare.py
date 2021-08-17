@@ -90,6 +90,9 @@ class displayDriver():
         image = pygame.image.load(item['src'])
         self._screen.blit(image, (item['x'], item['y']))
 
+    def refreshImage(self, item):
+        pass     # TODO: HERE
+
     # Write a text
     def showText(self, text, customFont=None):
         if customFont:

@@ -93,6 +93,8 @@ def unixdatetimeToStr(ts=None, format='%Y/%m/%d %H:%M:%S'):
 
 # Seconds to human readable string format (example: 3600 -> '1h')
 def secondsToDaysHoursMinutesStr(time=None):
+    if not time:
+        return ''
     if isinstance(time, str) and not time.isdigit():
         return ''
     time = int(float(time))

@@ -506,6 +506,13 @@ class system():
                     print("\nERROR: Cannot execute [{}] method '{}' for screen '{}'.".format(eventName, functionName, screenName))
 
 
+    # Standard print error on Exception (useful for debug tracing)
+    def printSystemError(self, MyException):
+        errorFile, errorLine, errorType = pysplay.utility.getError()
+        print('\nERROR: {}'.format(MyException))
+        print('       {}:{},  {}'.format(errorFile, errorLine, errorType))
+
+
     # Test/Debug features, useful for screen calibration
     def calibration(self):
         # Force rewrite main screen with Calibration Screen [SCREEN_CALIBRATION]
@@ -539,9 +546,8 @@ class system():
                             break
                         print("{}> ".format(len(points)+1), end='', flush=True)
             except Exception as E:
-                errorFile, errorLine, errorType = pysplay.utility.getError()
-                print('\nERROR: {}'.format(E))
-                print('       {}:{},  {}'.format(errorFile, errorLine, errorType))
+                self.printSystemError(E)
+
 
     # Main event loop
     def loop(self):
@@ -559,10 +565,9 @@ class system():
                     emitterFunction(message['data'])
 
             except Exception as E:
-                errorFile, errorLine, errorType = pysplay.utility.getError()
-                print('\nERROR: {}'.format(E))
-                print('       {}:{},  {}'.format(errorFile, errorLine, errorType))
+                self.printSystemError(E)
                 print('       Msg={}'.format(message))
+
 
     # Detect possible selected widget on touch event, if any. Called by [self.loop()]
     def _widgetDetect(self, X, Y):
@@ -573,10 +578,7 @@ class system():
                     try:
                         pysplay.utility.functionExecute(self._userObject, *userAction)
                     except Exception as E:
-                        errorFile, errorLine, errorType = pysplay.utility.getError()
-                        print('\nERROR: Receiver function error "{}"'.format(E))
-                        print('       {}:{},  {}'.format(errorFile, errorLine, errorType))
-
+                        self.printSystemError(E)
 
     # Get widget from screen
     def widgetGet(self, screenName, widgetID):
