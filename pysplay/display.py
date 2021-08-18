@@ -75,8 +75,10 @@ class display(displayDriver):
 
     # Clear previous widget and redraw a new one on behalf
     def widgetRefresh(self, widgetOld=None, widgetNew=None, refresh=True):
-        if widgetOld['type'] == 'text':
+        if widgetNew['type'] == 'text':
             self.refreshText(widgetOld, widgetNew)
+        elif widgetNew['type'] == 'image':
+            self.refreshImage(widgetOld, widgetNew)
         else:
             self.widgetShow(widgetNew, refresh=False)
         if refresh:

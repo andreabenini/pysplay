@@ -201,8 +201,9 @@ class userobject():
         self.__system.widgetSetKey(screen, widget, 'start', start)
         self.__system.widgetShow(listbox)
 
-    # Dispaly a new text in a [text] widget item
-    def textShow(self, screenName=None, widgetName=None, textValue=None, show=True):
+
+    # Display/Refresh a new text in a [text] widget item
+    def textShow(self, screenName=None, widgetName=None, textValue=None, refresh=True):
         if not screenName or not widgetName or not textValue:
             return
         widget = self.__system.widgetGet(screenName, widgetName)
@@ -211,12 +212,26 @@ class userobject():
         previousText = widget.copy()
         previousText['textcolor'] = self.__system.screenProperty(screenName)['color']
         widget['text'] = textValue
-        self.__system.widgetRefresh(widgetOld=previousText, widgetNew=widget, refresh=show)
+        self.__system.widgetRefresh(widgetOld=previousText, widgetNew=widget, refresh=refresh)
 
 
+    # Display/Refresh a new image in a [image] widget item
+    def imageShow(self, screenName=None, widgetName=None, refresh=True):
+        if not screenName or not widgetName:
+            return
+        widget = self.__system.widgetGet(screenName, widgetName)
+        if not widget:
+            return
+        previousWidget = widget.copy()
+        previousWidget['color'] = self.__system.screenProperty(screenName)['color']
+        self.__system.widgetRefresh(widgetOld=previousWidget, widgetNew=widget, refresh=refresh)
+
+
+    # Set a property in a widget
     def widgetSet(self, screenName=None, widgetName=None, key=None, value=None):
         self.__system.widgetSetKey(screenName, widgetName, key, value)
 
+    # Display a widget on screen without refreshing it
     def widgetShow(self, screenName=None, widgetName=None, refresh=True):
         widget = self.__system.widgetGet(screenName, widgetName)
         self.__system.widgetShow(widget=widget, refresh=refresh)

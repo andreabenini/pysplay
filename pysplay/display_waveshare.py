@@ -85,13 +85,19 @@ class displayDriver():
             textPos = (button['x']+button['width']/2-w/2,   button['y']+button['height']/2-h/2)
         self._screen.blit(fontImage, textPos)
 
+
     # Display an image
     def showImage(self, item):
         image = pygame.image.load(item['src'])
         self._screen.blit(image, (item['x'], item['y']))
 
-    def refreshImage(self, item):
-        pass     # TODO: HERE
+    # Refresh an image on screen. Clear the old one (with a box) and display the newer
+    def refreshImage(self, widgetOld, widgetNew):
+        image = pygame.image.load(widgetNew['src'])
+        rectangle = image.get_rect()
+        pygame.draw.rect(self._screen, widgetOld['color'], rectangle.move( (widgetNew['x'],widgetNew['y']) ))
+        self._screen.blit(image, (widgetNew['x'],widgetNew['y']))
+
 
     # Write a text
     def showText(self, text, customFont=None):
