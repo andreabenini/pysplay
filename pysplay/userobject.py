@@ -285,3 +285,8 @@ class userobject():
         functionExecute += (message,)       # Add message queue to function executor
         try: pysplay.utility.functionExecute(self, *functionExecute)
         except: pass
+
+    # print Exception on stdout for debugging purposes
+    def systemError(self, userException):
+        self.__system.printSystemError(userException)
+
