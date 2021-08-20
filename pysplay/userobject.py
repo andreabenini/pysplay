@@ -6,6 +6,7 @@
 import os
 from re import S
 import requests
+import subprocess
 import multiprocessing
 import pysplay.utility
 
@@ -25,6 +26,10 @@ class userobject():
     def __init__(self, system):
         self.__previousScreen = ''
         self.__system = system
+
+    @property   # Returns program path
+    def path(self):
+        return self.__system.path
 
     @property
     def screenCurrent(self):
@@ -67,6 +72,12 @@ class userobject():
         if not url:
             return None
         return requests.get(url, headers=headers)
+    # HTTP 'GET' save to file
+    def httpGet2File(self, url=None, headers=None, filename=None):
+        if not url or not filename:
+            return None
+        result = requests.get(url, headers=headers, allow_redirects=True)
+        open(filename, 'wb').write(result.content)
     # HTTP 'DELETE' request
     def httpDelete(self, url=None, headers=None):
         if not url:
@@ -77,6 +88,10 @@ class userobject():
         if not url:
             return None
         return requests.post(url, headers=headers, json=jsonPayload)
+
+    # Execute a shell command
+    def exec(self, processToRun=[]):
+        subprocess.call(processToRun)
 
 
     # Close current screen and return to previous one, useful with confirm() method

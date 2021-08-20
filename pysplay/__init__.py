@@ -11,6 +11,7 @@ try:
     import evdev
     import pygame
     import requests
+    import subprocess
     import multiprocessing
     # Package imports
     import pysplay.const
